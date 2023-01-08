@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="19" failures="0" name="step_definitions.RunCukesTest" time="0.704" errors="0" skipped="0">
+<testsuite tests="20" failures="0" name="step_definitions.RunCukesTest" time="0.696" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.2.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -65,7 +65,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Scenario: Filter Product and Checkout" name="Given user open the website sauce demo" time="0.002"/>
+  <testcase classname="Scenario: Filter Product and Checkout" name="Given user open the website sauce demo" time="0.005"/>
   <testcase classname="Scenario: Filter Product and Checkout" name="When user input &quot;standard_user&quot; as userName and input &quot;secret_sauce&quot; as password, character will be inputed" time="0"/>
   <testcase classname="Scenario: Filter Product and Checkout" name="Then user click login button" time="0"/>
   <testcase classname="Scenario: Filter Product and Checkout" name="When user select &quot;Name (Z to A)&quot; to FILTER PRODUCT item, product will be sorted by selected input" time="0"/>
@@ -81,7 +81,8 @@
   <testcase classname="Scenario: Filter Product and Checkout" name="When user click Continue Button" time="0"/>
   <testcase classname="Scenario: Filter Product and Checkout" name="Then user will be redirected to page titled &quot;CHECKOUT: OVERVIEW&quot;" time="0"/>
   <testcase classname="Scenario: Filter Product and Checkout" name="Then verify product Name &quot;Sauce Labs Onesie&quot;" time="0"/>
+  <testcase classname="Scenario: Filter Product and Checkout" name="Then verify component summary cost" time="0"/>
   <testcase classname="Scenario: Filter Product and Checkout" name="When user click Finish Button" time="0"/>
   <testcase classname="Scenario: Filter Product and Checkout" name="Then user will be redirected to page titled &quot;CHECKOUT: COMPLETE!&quot;" time="0"/>
-  <testcase classname="Scenario: Filter Product and Checkout" name="Scenario: Filter Product and Checkout" time="0.702"/>
+  <testcase classname="Scenario: Filter Product and Checkout" name="Scenario: Filter Product and Checkout" time="0.691"/>
 </testsuite>

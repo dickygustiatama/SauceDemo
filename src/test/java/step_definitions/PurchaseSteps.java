@@ -90,7 +90,7 @@ public class PurchaseSteps {
     public boolean isDisplayItem (String products) throws InterruptedException {
         InventoriPage inventoriPage = new InventoriPage(webDriver);
         Thread.sleep(1000);
-        inventoriPage.isDisplayItem(products);
+        Assert.assertTrue(inventoriPage.isDisplayItem(products));
         Thread.sleep(1000);
         return true;
     }
@@ -110,8 +110,8 @@ public class PurchaseSteps {
 
     @When("user click remove item \"(.*)\"")
     public void removingAnItem(String itemName) throws InterruptedException {
-        InventoriPage inventoriPage = new InventoriPage(webDriver);
-        inventoriPage.removeItem(itemName);
+        CheckOutPage checkOutPage = new CheckOutPage(webDriver);
+        checkOutPage.removeItem(itemName);
         Thread.sleep(1000);
     }
 
@@ -124,46 +124,34 @@ public class PurchaseSteps {
 
     @When("user click Continue Button")
     public void submitInfoBuyer() throws InterruptedException {
-        InventoriPage inventoriPage = new InventoriPage(webDriver);
-        inventoriPage.submitInfoBuyer();
+        CheckOutPage checkOutPage = new CheckOutPage(webDriver);
+        checkOutPage.submitInfoBuyer();
         Thread.sleep(1000);
     }
 
     @When("user click Finish Button")
     public void FinishCheckout() throws InterruptedException {
-        InventoriPage inventoriPage = new InventoriPage(webDriver);
-        inventoriPage.finishCheckout();
+        CheckOutPage checkOutPage = new CheckOutPage(webDriver);
+        checkOutPage.finishCheckout();
         Thread.sleep(1000);
     }
 
     @When("user need to input Information First Name/Last Name/Postal Code :\"(.*)\"/\"(.*)\"/\"(.*)\"")
     public void informationForm(String firstname, String lastname, String postalcode) throws InterruptedException {
-        InventoriPage inventoriPage = new InventoriPage(webDriver);
-        inventoriPage.setInformationForm(firstname, lastname, postalcode);
+        CheckOutPage checkOutPage = new CheckOutPage(webDriver);
+        checkOutPage.setInformationForm(firstname, lastname, postalcode);
         Thread.sleep(1000);
     }
-//
-//    @Then("verify \"(.*)\" label, \"(.*)\" label, \"(.*)\" label and \"(.*)\" label")
-//    public boolean checkoutOverview (String products, String paymenInfo,  ) throws InterruptedException {
-//        InventoriPage inventoriPage = new InventoriPage(webDriver);
-//        Thread.sleep(1000);
-//        inventoriPage.isDisplayItem(products);
-//        Thread.sleep(1000);
-//        return true;
-//    }
 
-    @Then("verify summary info \"(.*)\" \"(.*)\" and \"(.*)\" \"(.*)\"")
-    public boolean summaryInfo (String paymentLabel, String paymentVal, String shippingLabel,String shippingVal) throws InterruptedException {
-        InventoriPage inventoriPage = new InventoriPage(webDriver);
-        Thread.sleep(1000);
-        Assert.assertTrue(inventoriPage.overviewSummaryInfo(paymentLabel,paymentVal, shippingLabel, shippingVal));
-        Thread.sleep(1000);
-        return true;
+    @Then("verify component summary cost")
+    public void isDisplaySummaryCost() throws InterruptedException {
+        CheckOutPage checkOutPage = new CheckOutPage(webDriver);
+        Assert.assertTrue(checkOutPage.isDisplaySumPrice());
     }
 
     @Then("verify product Name \"(.*)\"")
     public void verifyProductName(String productName) throws InterruptedException {
-        InventoriPage inventoriPage = new InventoriPage(webDriver);
-        Assert.assertTrue(inventoriPage.verifyProductName(productName));
+        CheckOutPage checkOutPage = new CheckOutPage(webDriver);
+        Assert.assertTrue(checkOutPage.verifyProductName(productName));
     }
 }

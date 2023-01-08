@@ -24,14 +24,6 @@
     When user click Continue Button
     Then user will be redirected to page titled "CHECKOUT: OVERVIEW"
     Then verify product Name "Sauce Labs Onesie"
-#    Then verify product Price "$7.99"
-#    Then verify "Payment Information:" label
-
-#    Then verify summary info "Payment Information" "SauceCard #31337" and "Shipping Information" "FREE PONY EXPRESS DELIVERY!"
-#    Then verify Product is "Sauce Labs Onesie"
-#    Then verify "Sauce Labs Onesie" label, "Payment Information" label, "Shipping Information" label and "Item Total" label
+    Then verify component summary cost
     When user click Finish Button
     Then user will be redirected to page titled "CHECKOUT: COMPLETE!"
-
-
-#    Then user redirected to CHECKOUT page titled CHECKOUT: COMPLETE! with header THANK YOU FOR YOUR ORDER

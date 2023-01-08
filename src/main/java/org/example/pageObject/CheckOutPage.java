@@ -14,10 +14,6 @@ public class CheckOutPage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    //displaying title PRODUCT
-//    @FindBy(xpath = "//div[@class='cart_desc_label']")
-//    private WebElement displayLandingPage;
-
     //displaying title product item
     @FindBy(xpath = "//div[.='+ productName.toLowerCase().replace(\" \", \"-\") + \"']")
     private WebElement displayLandingPage;
@@ -46,6 +42,74 @@ public class CheckOutPage {
         }
         return dataReturn;
 
+    }
+
+
+    @FindBy(xpath = "//span[@class='title']")
+    private WebElement titlePage;
+
+    @FindBy(className = "item_pricebar")
+    private WebElement itemPriceBar;
+
+    //submitInfo button
+    @FindBy(xpath = "//input[@id='continue']")
+    private WebElement buttonSubmitInfo;
+
+    //finish button
+    @FindBy(xpath = "//button[@id='finish']")
+    private WebElement buttonFinishCheckout;
+
+    @FindBy(className = "checkout_info")
+    private WebElement checkoutInfo;
+
+    @FindBy(xpath = "//div[contains(text(),'Item total:')]")
+    private WebElement itemTotal;
+
+    @FindBy(xpath = "//div[contains(text(),'Tax:')]")
+    private WebElement itemTax;
+
+    @FindBy(xpath = "//div[contains(text(),'Total:')]")
+    private WebElement total;
+
+    //displaying invetoryItemName
+    @FindBy(css = ".inventory_item_name")
+    private WebElement invetoryItemName;
+
+    public void submitInfoBuyer() {
+        buttonSubmitInfo.click();
+    }
+
+    public void finishCheckout() {
+        buttonFinishCheckout.click();
+    }
+
+    public boolean isDisplayPage(String title) {
+        return titlePage.getText().equals(title);
+    }
+
+    public boolean verifyProductName(String productName) {
+        return invetoryItemName.getText().equals(productName);
+    }
+
+
+    public void removeItem(String itemName) {
+        WebElement removeItem;
+        String xPathRemoveItem = "//button[@id='remove-" + itemName.toLowerCase().replace(" ", "-") + "']";
+        removeItem = itemPriceBar.findElement(By.xpath(xPathRemoveItem));
+        removeItem.click();
+    }
+
+    public void setInformationForm(String firstname, String lastname, String postalcode) {
+        WebElement fname = checkoutInfo.findElement(By.xpath("//input[@id='first-name']"));
+        WebElement lname = checkoutInfo.findElement(By.xpath("//input[@id='last-name']"));
+        WebElement pcode = checkoutInfo.findElement(By.xpath("//input[@id='postal-code']"));
+        fname.sendKeys(firstname);
+        lname.sendKeys(lastname);
+        pcode.sendKeys(postalcode);
+    }
+
+    public boolean isDisplaySumPrice() {
+        return itemTotal.isDisplayed() && itemTax.isDisplayed() && total.isDisplayed();
     }
 
 
